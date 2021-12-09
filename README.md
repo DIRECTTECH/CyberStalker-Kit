@@ -24,16 +24,8 @@ The Traffic Analysis Sensor system detects infected machines and their connectio
 
 ## System Components
 
-The Platform has in its Core leverages The World's Most Advanced Open Source Relational Database - PostgreSQL.
-It allows structured but very flexible data storage including high speed processing and very rich functionality exposed
-to other components of the system via APIs. Platform supports two types of APIs, namely gRPC and GraphQL, which
-can be used for two typical use cases. gRPC API is a high-performance Southbound API with functions set optimized
-to high speed processing of device data flow and device control functions. GraphQL is a modern and powerful API
-technology with a rich set of functionality which makes it a perfect fit for UI and business logic implementation.
-GraphQL is used as a Northbound API.
-CyberStalker integration kit modules are built-in and effectively complement the kernel components. They provide a
-convenient interaction with CyberStalker products, process display engines, while using the administration and
-connectivity of existing business logic and notification engines.
+The Platform has in its Core leverages The World's Most Advanced Open Source Relational Database - PostgreSQL. It allows structured but very flexible data storage including high speed processing and very rich functionality exposed to other components of the system via APIs. Platform supports two types of APIs, namely gRPC and GraphQL, which can be used for two typical use cases. gRPC API is a high-performance Southbound API with functions set optimized to high speed processing of device data flow and device control functions. GraphQL is a modern and powerful API technology with a rich set of functionality which makes it a perfect fit for UI and business logic implementation. GraphQL is used as a Northbound API.
+CyberStalker integration kit modules are built-in and effectively complement the kernel components. They provide a convenient interaction with CyberStalker products, process display engines, while using the administration and connectivity of existing business logic and notification engines.
 
 ## CyberStalker Bridge
 
@@ -49,54 +41,30 @@ As a result, the designers made a number of key choices which have come to chara
 - Expect that client applications may have very limited processing resources available;
 - Provide traditional messaging qualities of service where the environment allows;
 - Flexible and data agnostic.
-Copyright © Direct Technologies DWC-LLC 2
 
-CyberStalker Bridge pulls in all your time series data (metrics and events) from Hitachi infrastructure making it easy
-for your developers to use. This data can be used for monitoring your applications and infrastructure as well as
-enhancing your applications by being queried in a real-time visualization in your application — a single source of truth
-for all your time series data.
-CyberStalker Bridge reads from specified MQTT topics and adds messages to Pixel Central Station. Messages are in
-the CyberStalker Agent’s Drivers input data formats for post-processing.
-Drivers
-CGroup Driver
-With CGroups Driver, you can distribute resources among groups of tasks / processes running on a system commonly
-used for your infrastructure and application environments. When you track the CGroups that you configure with the
-CGroup Driver, the metrics collected will help you determine whether to allow or deny CGroups access to resources.
-This information can also help you dynamically reconfigure your CGroups on a live system.
-CGroups Driver allows you to allocate resources - such as CPU time, system memory, network bandwidth, or a
-combination of these resources - among user-defined groups of tasks (processes) running on the system. You can
-keep track of the CGroups you configure, deny CGroups access to specific resources, and even dynamically
-reconfigure your CGroups on a live system.
-This driver will collect specific statistics for each CGroup. Consider limiting the paths to the CGroup you really want to
-track if you have a large number of CGroups to avoid any cardinality issues.
-Cisco Telemetry Driver
-Cisco Telemetry Driver is a mechanism to stream data from an MDT-capable device to a destination. It uses a push
-model and provides near real-time access to operational statistics for monitoring data. You can subscribe to the data
-by using standards-based YANG data models over open protocols.
-If you are part of a network operations team, the ability to collect data in near real time is important for network
-visibility and performance. MDT-capable devices can stream telemetry data using MDT, and the Cisco Model-Driven
-Telemetry Driver will allow you to consume this data in Pixel central Station. Dashboards of this telemetry data will
-prove useful with your day-to-day operations, automation and planning of your network. In addition, if you have
-devices using other protocols like SNMP, you can gain a holistic view of all your network devices.
-Cisco Telemetry Driver consumes telemetry data from Cisco IOS XR, IOS XE and NX-OS platforms. It supports TCP
-& GRPC dialout transports. GRPC-based transport can utilize TLS for authentication and encryption. Telemetry data is
-expected to be GPB-KV (self-describing-gpb) encoded.
-The GRPC dialout transport is supported on various IOS XR (64-bit) 6.1.x and later, IOS XE 16.10 and later, as well
-as NX-OS 7.x and later platforms. The TCP dialout transport is supported on IOS XR (32-bit and 64-bit) 6.1.x and
-later.
-Juniper Telemetry Driver
-Juniper Telemetry Driver is a push mechanism to collect operational metrics for monitoring the health of a network that
-has no scaling limitations. Unlike JTI, traditional pull mechanisms like SNMP and the CLI — which require additional
-processing to periodically poll the network element — directly limit scaling.
-Juniper Telemetry Driver reads the Juniper Networks implementation of OpenConfig telemetry data from listed
-sensors using the Junos Telemetry Interface. This data is helpful when monitoring the performance of any Jupiter
-devices that you may have in your environment. Compared to traditional pull mechanisms, the Junos Telemetry data is
-streamed in real time to allow network administrators to measure trends in link and node utilization, and troubleshoot
-such issues as network congestion in real time.
-When using the JJuniper Telemetry Driver, you need to list the addresses of the devices that you plan to collect the
-telemetry data from. This may also require authentication details such as username, passwork, client ids, and certs.
-You can also set the frequency of the data collection depending on your monitoring needs and retention policies.
-Copyright © Direct Technologies DWC-LLC 3
+
+CyberStalker Bridge pulls in all your time series data (metrics and events) from Hitachi infrastructure making it easy for your developers to use. This data can be used for monitoring your applications and infrastructure as well as enhancing your applications by being queried in a real-time visualization in your application — a single source of truth for all your time series data.
+CyberStalker Bridge reads from specified MQTT topics and adds messages to Pixel Central Station. Messages are in the CyberStalker Agent’s Drivers input data formats for post-processing.
+
+## Drivers
+
+### CGroup Driver
+With CGroups Driver, you can distribute resources among groups of tasks / processes running on a system commonly used for your infrastructure and application environments. When you track the CGroups that you configure with the CGroup Driver, the metrics collected will help you determine whether to allow or deny CGroups access to resources. This information can also help you dynamically reconfigure your CGroups on a live system.
+CGroups Driver allows you to allocate resources - such as CPU time, system memory, network bandwidth, or a combination of these resources - among user-defined groups of tasks (processes) running on the system. You can keep track of the CGroups you configure, deny CGroups access to specific resources, and even dynamically reconfigure your CGroups on a live system.
+This driver will collect specific statistics for each CGroup. Consider limiting the paths to the CGroup you really want to track if you have a large number of CGroups to avoid any cardinality issues.
+
+### Cisco Telemetry Driver
+
+Cisco Telemetry Driver is a mechanism to stream data from an MDT-capable device to a destination. It uses a push model and provides near real-time access to operational statistics for monitoring data. You can subscribe to the data by using standards-based YANG data models over open protocols.
+If you are part of a network operations team, the ability to collect data in near real time is important for network visibility and performance. MDT-capable devices can stream telemetry data using MDT, and the Cisco Model-Driven Telemetry Driver will allow you to consume this data in Pixel central Station. Dashboards of this telemetry data will prove useful with your day-to-day operations, automation and planning of your network. In addition, if you have devices using other protocols like SNMP, you can gain a holistic view of all your network devices.
+Cisco Telemetry Driver consumes telemetry data from Cisco IOS XR, IOS XE and NX-OS platforms. It supports TCP & GRPC dialout transports. GRPC-based transport can utilize TLS for authentication and encryption. Telemetry data is expected to be GPB-KV (self-describing-gpb) encoded.
+The GRPC dialout transport is supported on various IOS XR (64-bit) 6.1.x and later, IOS XE 16.10 and later, as well as NX-OS 7.x and later platforms. The TCP dialout transport is supported on IOS XR (32-bit and 64-bit) 6.1.x and later.
+
+### Juniper Telemetry Driver
+
+Juniper Telemetry Driver is a push mechanism to collect operational metrics for monitoring the health of a network that has no scaling limitations. Unlike JTI, traditional pull mechanisms like SNMP and the CLI — which require additional processing to periodically poll the network element — directly limit scaling.
+Juniper Telemetry Driver reads the Juniper Networks implementation of OpenConfig telemetry data from listed sensors using the Junos Telemetry Interface. This data is helpful when monitoring the performance of any Jupiter devices that you may have in your environment. Compared to traditional pull mechanisms, the Junos Telemetry data is streamed in real time to allow network administrators to measure trends in link and node utilization, and troubleshoot such issues as network congestion in real time.
+When using the JJuniper Telemetry Driver, you need to list the addresses of the devices that you plan to collect the telemetry data from. This may also require authentication details such as username, passwork, client ids, and certs. You can also set the frequency of the data collection depending on your monitoring needs and retention policies.
 
 Data can be collected for each individual device or groups of devices and you can aggregate data over fixed time
 spans such as:
@@ -105,120 +73,60 @@ ingress errors over a 30-second interval.
 - Data from different sources (such as multiple line cards) for the same metric, such as label-switched path
 (LSP) statistics or filter counter statistics.
 - Data from multiple sources, such as input and output statistics for aggregated Ethernet interfaces.
-CPU Driver
-When trying to answer questions about what is impacting the performance of your servers or determining what VM
-size to choose, one of the first set of bottlenecks you check are memorey, disk, and CPU. CPU metrics in particular
-are helpful to determine if the CPU is constantly being maxed out. Key metrics that can help uncover the issue behind
-the CPU being maxed will paint a picture of who is using the CPU (application, processes, or OS itself); which
-processes are demanding more cycles than the CPU can provide; whether the CPU is waiting for operations to
-complete; or whether it is doing no work at all.
-Typically, when you are tracking metrics about CPU performance, you do this by collecting and reviewing memory and
-disk usage as well. The CPU driver gathers metrics on the system CPU that you can store in Pixel Central Station.
-You can also easily add memory, disk and a whole host of other metrics with the various drivers to help paint a
-complete picture of your environment’s performance. Using DV driver opens the door for lots of varied use cases.
-Configuring the CPU Driver is simple as there are only a handful of configurations to set. They include whether to
-report per CPU stats or not, whether to report total system CPU stats or not, collect raw CPU time metrics, and then
-compute and report on the sum of all non-idle CPU states. You can point to your Pixel Central Station instances and
-start collecting and reporting on these metrics.
-Disk Driver
-With the price of disk storage dropping every day, you may be wondering: Why bother monitor disk usage any more?
-Even though storage costs have gone down, you still need to monitor disk usage to ensure that your applications or
-processes won’t fail due to insufficient disk storage, which could lead to other failures. And this can be tricky if you're
-hosting someone else's files since you don’t know when and how much data they are likely to write to storage.
-Actively monitoring your free disk space using the Disk Driver — an input driver — can prevent data loss, server
-downtime and failures by being alerted promptly when disk space availability is beyond specified critical thresholds.
-Configuring the Disk Driver is simple, and you can start collecting disk storage metrics and storing it in Pixel Central
-Station in no time. You can specify thresholds and receive alerts when those thresholds are crossed and keep track of
-hard disk usage of your web servers, application servers, file servers and much more. Collect other relevant metric
-data like CPU and memory usage, and you will start to build a more comprehensive view of your infrastructure.
-The Disk Driver gathers metrics about disk usage. Note that used_percent is calculated by doing used / (used + free),
-not used / total, which is how the unix df command does it.
-DNS Query Driver
-DNS (Domain Name System) is a naming system for resources connected to the Internet — essentially the
-phonebook of the Internet. Monitoring your DNS records helps you ensure that the Domain Name System continues to
-route traffic properly to your websites, services, and electronic communications.
-DNS monitoring is done to track DNS requests and servers for performance issues, and therefore keeping an eye on
-DNS performance at effective levels is a must for companies. Collecting these metrics with the DNS Query Driver will
-allow you to quickly store them in Pixel Central Station along with a number of other metrics that can help you gain a
-comprehensive view of your application, networks and more.
-The DNS driver gathers DNS query times in milliseconds, similar to dig, a network administration command-line tool
-for querying the Domain Name System (DNS). Configuring the DNS Query Driver requires defining the network
-protocol, domain, port, and query timeout. You can start collecting DNS Query metrics to help you understand
-performance. You can set thresholds and send alerts to avoid any issues with DNS routing.
-Copyright © Direct Technologies DWC-LLC 4
 
-Bond Driver
-In general, network bonding is a term used to describe the combination of network interfaces on one host, all for the
-purposes of redundancy and/or increased throughput. This is especially important in terms of virtualized
-environments, where redundancy is a critical factor. Obviously, you want to do whatever it takes to protect that
-virtualized environment from loss of service due to a disaster at a single point of failure or physical link. Network
-bonding goes a long way towards accomplishing precisely that.
-Network bonding is also helpful in terms of increasing not only the network throughput and bandwidth, but it's also
-ideal when looking for fault tolerance, when load balancing networks and more. This is not to be confused with the
-concept of teaming, which is essentially a new way to implement network bonding by way of a separately provided
-driver.
-Bonding your networks increases network throughput for your users, so it is important to know the current state of
-these bond interfaces to ensure performance guarantees to your users.
-By paying attention to what is happening during normal working conditions, you can also put yourself in a position to
-more quickly identify whenever anything starts to stray outside of those "default" boundaries. This insight can be a
-great way to spot a small problem and fix it right now, all before allowing it to become a much larger (and potentially
-more damaging) issue in the future.
-The Bond Driver collects metrics so you know which interface is active, what the state of the bond interface is, and if
-there are any failures. Knowing this will help you to maintain these interfaces, and therefore keep your SLA promises
-to your customers. Furthermore, you can combine these metrics with metrics collected from other drivers like SNMP,
-NetFlow, and Cisco gRPC Network Management Interface (gNMI) to get a fully integrated view of your network health.
-By default, the Bond Driver collects metrics from all bond interfaces, but you can restrict the metrics to specified bond
-interfaces.
-Ethtool Driver
-Ethtool is a standard utility program that can be used from a shell to control, or gather information from NICs using the
-ethtool userspace API. In the Information technology community, the term ethtool is usually used to refer to this utility
-program.
-Gathering metrics on your Ethernet devices connected to your Linux system can help you troubleshoot
-Ethernet-card-related problems on a Linux system.
-The Ethtool Driver pulls ethernet device stats. Metrics pulled are dependent on the network device and driver.
-Configuration of this input driver is simple: list the metrics you want or you want to ignore. Once you have set this
-configuration, then point the driver to your instance to start gathering metrics.
-Logic Modules
-Security Analysis Tool
-With the Security Analysis Tool, users can use out-of-the-box, predefined rules to improve their predictive
-cybersecurity analytics. These rules offer additional context for various events on the network, such as user actions
-and login attempts.
-The Security Analysis Tool allows you to use both standard and custom rules to ensure that you adhere to best
-practices in security threat analysis. In addition, the SAT allows administrators to set thresholds to better define the
-relationships between events. Since logs are generated at any time of the day, it is easy to get lost in the noise of
-alerts and notifications. But SAT gives you the ability to customize alert thresholds as you see fit, so you're less likely
-to get useless pings or miss malicious activity on your network. If Threat Analyzer detects suspicious activity, Security
-Event Manager can send an automated email or SMS alert to the desired team member. The cybersecurity threat
-analysis tool makes it easier to identify potential problems in log data - even in a hybrid IT environment.
-Security Analysis Tool is designed to send data through a built-in and constantly updated threat analytics channel
-designed to identify invalid IP addresses, malware, and more, and users can easily search and filter data to better
-isolate issues, and create custom reports. for compliance and to support forensic analysis.
-Copyright © Direct Technologies DWC-LLC 5
+### CPU Driver
 
-Dynamic file analysis
-Dynamic file analysis combines several sandboxing approaches for behavioral profiling to cluster and identify
-similarities in malware behavior and identify complex threats. Powerful rules allow you to identify patterns of behavior
-that are specific to families and strains of malware, or to pinpoint the exact malicious intent of the malware itself.
-Dynamic file analysis uses a set of techniques to develop intelligence, including probabilistic prediction, feature
-extraction, and context generation.
-Machine learning dramatically scales and automates the detection and prevention of cyber threats. Advanced
-machine learning models help us detect new forms of malware, prevent zero-day attacks, detect targeted malware,
-and deliver the highest detection rates in the cybersecurity industry. It applies machine learning both in the cloud and
-on-premises within the client to detect and classify complex threats.
-The advanced scan engine is an extremely efficient way to identify families of known malware. It uses proprietary
-definitions and heuristic algorithms as well as powerful content extraction and deobfuscation techniques to detect
-malware. This powerful scanning engine is capable of analyzing files much more thoroughly than any endpoint
-scanning tool, and quickly deduces whether the code is part of a known malware family.
-The engine also employs advanced decomposition techniques that extract and reveal all compressed and obfuscated
-data in a malicious file in real time.
-Cyber Stalker Connector
-Cyber Stalker Connector will send all your metrics and events stored in Pixel Central Station. You can use Pixel
-Central Station to collect all your metrics by using drivers or any of your custom metrics using the client libraries. This
-will provide you with all the data you need to gain full insight into your entire stack. You can then send all these metrics
-to your central Cyber Stalker Server instance to get that single pane of glass your teams need to keep your systems,
+When trying to answer questions about what is impacting the performance of your servers or determining what VM size to choose, one of the first set of bottlenecks you check are memorey, disk, and CPU. CPU metrics in particular are helpful to determine if the CPU is constantly being maxed out. Key metrics that can help uncover the issue behind the CPU being maxed will paint a picture of who is using the CPU (application, processes, or OS itself); which
+processes are demanding more cycles than the CPU can provide; whether the CPU is waiting for operations to complete; or whether it is doing no work at all.
+Typically, when you are tracking metrics about CPU performance, you do this by collecting and reviewing memory and disk usage as well. The CPU driver gathers metrics on the system CPU that you can store in Pixel Central Station. You can also easily add memory, disk and a whole host of other metrics with the various drivers to help paint a complete picture of your environment’s performance. Using DV driver opens the door for lots of varied use cases.
+Configuring the CPU Driver is simple as there are only a handful of configurations to set. They include whether to report per CPU stats or not, whether to report total system CPU stats or not, collect raw CPU time metrics, and then compute and report on the sum of all non-idle CPU states. You can point to your Pixel Central Station instances and start collecting and reporting on these metrics.
+
+### Disk Driver
+
+With the price of disk storage dropping every day, you may be wondering: Why bother monitor disk usage any more? Even though storage costs have gone down, you still need to monitor disk usage to ensure that your applications or processes won’t fail due to insufficient disk storage, which could lead to other failures. And this can be tricky if you're hosting someone else's files since you don’t know when and how much data they are likely to write to storage.
+Actively monitoring your free disk space using the Disk Driver — an input driver — can prevent data loss, server downtime and failures by being alerted promptly when disk space availability is beyond specified critical thresholds.
+Configuring the Disk Driver is simple, and you can start collecting disk storage metrics and storing it in Pixel Central Station in no time. You can specify thresholds and receive alerts when those thresholds are crossed and keep track of hard disk usage of your web servers, application servers, file servers and much more. Collect other relevant metric data like CPU and memory usage, and you will start to build a more comprehensive view of your infrastructure.
+The Disk Driver gathers metrics about disk usage. Note that used_percent is calculated by doing used / (used + free), not used / total, which is how the unix df command does it.
+
+### DNS Query Driver
+
+DNS (Domain Name System) is a naming system for resources connected to the Internet — essentially the phonebook of the Internet. Monitoring your DNS records helps you ensure that the Domain Name System continues to route traffic properly to your websites, services, and electronic communications.
+DNS monitoring is done to track DNS requests and servers for performance issues, and therefore keeping an eye on DNS performance at effective levels is a must for companies. Collecting these metrics with the DNS Query Driver will allow you to quickly store them in Pixel Central Station along with a number of other metrics that can help you gain a comprehensive view of your application, networks and more.
+The DNS driver gathers DNS query times in milliseconds, similar to dig, a network administration command-line tool for querying the Domain Name System (DNS). Configuring the DNS Query Driver requires defining the network protocol, domain, port, and query timeout. You can start collecting DNS Query metrics to help you understand performance. You can set thresholds and send alerts to avoid any issues with DNS routing.
+
+### Bond Driver
+
+In general, network bonding is a term used to describe the combination of network interfaces on one host, all for the purposes of redundancy and/or increased throughput. This is especially important in terms of virtualized environments, where redundancy is a critical factor. Obviously, you want to do whatever it takes to protect that virtualized environment from loss of service due to a disaster at a single point of failure or physical link. Network bonding goes a long way towards accomplishing precisely that.
+Network bonding is also helpful in terms of increasing not only the network throughput and bandwidth, but it's also ideal when looking for fault tolerance, when load balancing networks and more. This is not to be confused with the concept of teaming, which is essentially a new way to implement network bonding by way of a separately provided driver.
+Bonding your networks increases network throughput for your users, so it is important to know the current state of these bond interfaces to ensure performance guarantees to your users.
+By paying attention to what is happening during normal working conditions, you can also put yourself in a position to more quickly identify whenever anything starts to stray outside of those "default" boundaries. This insight can be a great way to spot a small problem and fix it right now, all before allowing it to become a much larger (and potentially more damaging) issue in the future.
+The Bond Driver collects metrics so you know which interface is active, what the state of the bond interface is, and if there are any failures. Knowing this will help you to maintain these interfaces, and therefore keep your SLA promises to your customers. Furthermore, you can combine these metrics with metrics collected from other drivers like SNMP, NetFlow, and Cisco gRPC Network Management Interface (gNMI) to get a fully integrated view of your network health. By default, the Bond Driver collects metrics from all bond interfaces, but you can restrict the metrics to specified bond interfaces.
+
+### Ethtool Driver
+
+Ethtool is a standard utility program that can be used from a shell to control, or gather information from NICs using the ethtool userspace API. In the Information technology community, the term ethtool is usually used to refer to this utility program.
+Gathering metrics on your Ethernet devices connected to your Linux system can help you troubleshoot Ethernet-card-related problems on a Linux system.
+The Ethtool Driver pulls ethernet device stats. Metrics pulled are dependent on the network device and driver. Configuration of this input driver is simple: list the metrics you want or you want to ignore. Once you have set this configuration, then point the driver to your instance to start gathering metrics.
+
+## Logic Modules
+
+### Security Analysis Tool
+
+With the Security Analysis Tool, users can use out-of-the-box, predefined rules to improve their predictive cybersecurity analytics. These rules offer additional context for various events on the network, such as user actions and login attempts.
+The Security Analysis Tool allows you to use both standard and custom rules to ensure that you adhere to best practices in security threat analysis. In addition, the SAT allows administrators to set thresholds to better define the relationships between events. Since logs are generated at any time of the day, it is easy to get lost in the noise of alerts and notifications. But SAT gives you the ability to customize alert thresholds as you see fit, so you're less likely to get useless pings or miss malicious activity on your network. If Threat Analyzer detects suspicious activity, Security Event Manager can send an automated email or SMS alert to the desired team member. The cybersecurity threat analysis tool makes it easier to identify potential problems in log data - even in a hybrid IT environment.
+Security Analysis Tool is designed to send data through a built-in and constantly updated threat analytics channel designed to identify invalid IP addresses, malware, and more, and users can easily search and filter data to better isolate issues, and create custom reports. for compliance and to support forensic analysis.
+
+### Dynamic file analysis
+
+Dynamic file analysis combines several sandboxing approaches for behavioral profiling to cluster and identify similarities in malware behavior and identify complex threats. Powerful rules allow you to identify patterns of behavior that are specific to families and strains of malware, or to pinpoint the exact malicious intent of the malware itself.
+Dynamic file analysis uses a set of techniques to develop intelligence, including probabilistic prediction, feature extraction, and context generation.
+Machine learning dramatically scales and automates the detection and prevention of cyber threats. Advanced machine learning models help us detect new forms of malware, prevent zero-day attacks, detect targeted malware, and deliver the highest detection rates in the cybersecurity industry. It applies machine learning both in the cloud and on-premises within the client to detect and classify complex threats.
+The advanced scan engine is an extremely efficient way to identify families of known malware. It uses proprietary definitions and heuristic algorithms as well as powerful content extraction and deobfuscation techniques to detect malware. This powerful scanning engine is capable of analyzing files much more thoroughly than any endpoint scanning tool, and quickly deduces whether the code is part of a known malware family.
+The engine also employs advanced decomposition techniques that extract and reveal all compressed and obfuscated data in a malicious file in real time.
+
+## Cyber Stalker Connector
+
+Cyber Stalker Connector will send all your metrics and events stored in Pixel Central Station. You can use Pixel Central Station to collect all your metrics by using drivers or any of your custom metrics using the client libraries. This will provide you with all the data you need to gain full insight into your entire stack. You can then send all these metrics to your central Cyber Stalker Server instance to get that single pane of glass your teams need to keep your systems,
 applications, and networks performant.
-This driver uses a credential chain for Authentication with the Cyber Stalker Server API. For this output driver to
-function correctly, the following variables must be configured: region and namespace. By correctly configuring these
-variables, Cyber Stalker Server will receive metrics and gather insights from that point.
-You can also use the Cyber Stalker Connector to discover and backup end nodes that are connected to firewall blades
-that are managed by the Security Management Server. Tip: Discovery from the multi-domain server is not supported.
+This driver uses a credential chain for Authentication with the Cyber Stalker Server API. For this output driver to function correctly, the following variables must be configured: region and namespace. By correctly configuring these variables, Cyber Stalker Server will receive metrics and gather insights from that point.
+You can also use the Cyber Stalker Connector to discover and backup end nodes that are connected to firewall blades that are managed by the Security Management Server. Tip: Discovery from the multi-domain server is not supported.
